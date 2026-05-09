@@ -1,0 +1,98 @@
+<style>
+.hero-l{background:#f4f4f4;border:1px solid #d8d8d8;border-radius:10px;overflow:hidden;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;display:flex;align-items:stretch;min-height:440px;width:100%}
+.hero-l-left{flex:1;padding:52px 44px;display:flex;flex-direction:column;justify-content:center;min-width:0}
+.hero-l-eyebrow{font-size:10px;letter-spacing:0.22em;color:#888;margin-bottom:14px;font-weight:600;text-transform:uppercase}
+.hero-l-title{font-size:clamp(44px,7vw,76px);font-weight:700;color:#111;letter-spacing:0.16em;line-height:1;margin-bottom:10px}
+.hero-l-sub{font-size:11px;letter-spacing:0.2em;color:#aaa;margin-bottom:26px;font-weight:600;text-transform:uppercase}
+.hero-l-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:26px}
+.hero-l-tag{font-size:10px;letter-spacing:0.12em;color:#666;border:1px solid #ccc;padding:4px 9px;font-weight:600;text-transform:uppercase}
+.hero-l-desc{font-size:14px;color:#555;line-height:1.75;max-width:320px;margin-bottom:26px}
+.hero-l-live{display:flex;align-items:center;gap:8px;margin-bottom:24px}
+.hero-l-dot{width:6px;height:6px;border-radius:50%;background:#2d7a00;animation:lpulse 2s infinite}
+@keyframes lpulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.hero-l-live-text{font-size:10px;letter-spacing:0.18em;color:#888;font-weight:600;text-transform:uppercase}
+.hero-l-meta{display:flex;gap:24px;flex-wrap:wrap}
+.hero-l-meta-item{display:flex;flex-direction:column;gap:3px}
+.hero-l-meta-label{font-size:9px;letter-spacing:0.16em;color:#aaa;font-weight:700;text-transform:uppercase}
+.hero-l-meta-value{font-size:12px;letter-spacing:0.08em;color:#222;font-weight:600}
+.hero-l-divider{width:1px;background:#e0e0e0;flex-shrink:0}
+.hero-l-right{width:300px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:#ebebeb;position:relative;overflow:hidden}
+.board-float-l{animation:floatl 4s ease-in-out infinite}
+@keyframes floatl{0%,100%{transform:translateY(0px)}50%{transform:translateY(-10px)}}
+@media(max-width:680px){
+  .hero-l{flex-direction:column;min-height:auto}
+  .hero-l-right{width:100%;height:240px}
+  .hero-l-divider{width:100%;height:1px}
+  .hero-l-left{padding:32px 24px}
+}
+</style>
+
+<div class="hero-l">
+  <div class="hero-l-left">
+    <div class="hero-l-eyebrow">Strategy Board Game</div>
+    <div class="hero-l-title">CACTUS</div>
+    <div class="hero-l-sub">3D · Two Player · Browser</div>
+
+    <div class="hero-l-tags">
+      <span class="hero-l-tag">Online Multiplayer</span>
+      <span class="hero-l-tag">Free to Play</span>
+    </div>
+
+    <div class="hero-l-desc">
+      Place your pieces, block your opponent, claim the board. No download, no install.
+    </div>
+
+    <div class="hero-l-live">
+      <div class="hero-l-dot"></div>
+      <div class="hero-l-live-text">Live — cactus-boardgame.vercel.app</div>
+    </div>
+
+    <div class="hero-l-meta">
+      <div class="hero-l-meta-item">
+        <div class="hero-l-meta-label">Platform</div>
+        <div class="hero-l-meta-value">Browser</div>
+      </div>
+      <div class="hero-l-meta-item">
+        <div class="hero-l-meta-label">Players</div>
+        <div class="hero-l-meta-value">1 v 1</div>
+      </div>
+      <div class="hero-l-meta-item">
+        <div class="hero-l-meta-label">Price</div>
+        <div class="hero-l-meta-value">Free</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-l-divider"></div>
+
+  <div class="hero-l-right">
+    <div class="board-float-l">
+      <svg width="200" height="280" viewBox="0 0 220 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="70" y="20" width="32" height="32" rx="2" fill="#e2e2da" stroke="#ccc" stroke-width="0.5"/>
+        <rect x="106" y="20" width="32" height="32" rx="2" fill="#e2e2da" stroke="#ccc" stroke-width="0.5"/>
+        <rect x="70" y="56" width="32" height="32" rx="2" fill="#d8d8d0" stroke="#c8c8c0" stroke-width="0.5"/>
+        <rect x="106" y="56" width="32" height="32" rx="2" fill="#d8d8d0" stroke="#c8c8c0" stroke-width="0.5"/>
+        <rect x="70" y="92" width="32" height="32" rx="2" fill="#d8d8d0" stroke="#c8c8c0" stroke-width="0.5"/>
+        <rect x="106" y="92" width="32" height="32" rx="2" fill="#d8d8d0" stroke="#c8c8c0" stroke-width="0.5"/>
+        <rect x="70" y="128" width="32" height="32" rx="2" fill="#d8d8d0" stroke="#c8c8c0" stroke-width="0.5"/>
+        <rect x="106" y="128" width="32" height="32" rx="2" fill="#d8d8d0" stroke="#c8c8c0" stroke-width="0.5"/>
+        <rect x="70" y="164" width="32" height="32" rx="2" fill="#d8d8d0" stroke="#c8c8c0" stroke-width="0.5"/>
+        <rect x="106" y="164" width="32" height="32" rx="2" fill="#d8d8d0" stroke="#c8c8c0" stroke-width="0.5"/>
+        <rect x="70" y="200" width="32" height="32" rx="2" fill="#d8d8d0" stroke="#c8c8c0" stroke-width="0.5"/>
+        <rect x="106" y="200" width="32" height="32" rx="2" fill="#d8d8d0" stroke="#c8c8c0" stroke-width="0.5"/>
+        <rect x="70" y="236" width="32" height="32" rx="2" fill="#e2e2da" stroke="#ccc" stroke-width="0.5"/>
+        <rect x="106" y="236" width="32" height="32" rx="2" fill="#e2e2da" stroke="#ccc" stroke-width="0.5"/>
+        <rect x="70" y="20" width="68" height="3" rx="1" fill="#2d7a00" opacity="0.4"/>
+        <rect x="70" y="265" width="68" height="3" rx="1" fill="#2d7a00" opacity="0.4"/>
+        <rect x="34" y="56" width="32" height="32" rx="2" fill="#4a9a10" opacity="0.9"/>
+        <rect x="34" y="92" width="32" height="32" rx="2" fill="#5aaa18" opacity="0.9"/>
+        <rect x="34" y="128" width="32" height="32" rx="2" fill="#3a8808" opacity="0.9"/>
+        <rect x="0" y="92" width="30" height="32" rx="2" fill="#2d7000" opacity="0.85"/>
+        <rect x="142" y="92" width="32" height="32" rx="2" fill="#d04828" opacity="0.9"/>
+        <rect x="142" y="128" width="32" height="32" rx="2" fill="#be3818" opacity="0.9"/>
+        <rect x="142" y="164" width="32" height="32" rx="2" fill="#aa2810" opacity="0.9"/>
+        <rect x="178" y="128" width="30" height="32" rx="2" fill="#961808" opacity="0.85"/>
+      </svg>
+    </div>
+  </div>
+</div>
