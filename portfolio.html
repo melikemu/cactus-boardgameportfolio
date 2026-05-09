@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CACTUS — Portfolio</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    background: #f4f4f4;
+    color: #111;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 80px 32px 120px;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: auto;
+    padding: 80px 0 72px;
+    border-bottom: 1px solid #d0d0d0;
+    margin-bottom: 72px;
+  }
+
+  .label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #777;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  h1 {
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: #111;
+    margin-bottom: 20px;
+  }
+
+  .hero-desc {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #444;
+    max-width: 560px;
+  }
+
+  .meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 36px;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .meta-key {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #999;
+  }
+
+  .meta-val {
+    font-size: 13px;
+    font-weight: 500;
+    color: #222;
+  }
+
+  /* Sections */
+  section {
+    margin-bottom: 64px;
+  }
+
+  h2 {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: #222;
+    margin-bottom: 16px;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  /* Statement block */
+  .statement {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #111;
+    border-left: 3px solid #111;
+    padding-left: 20px;
+    margin: 32px 0;
+  }
+
+  /* System flow */
+  .flow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+    margin: 28px 0;
+    row-gap: 12px;
+  }
+
+  .flow-node {
+    background: #fff;
+    border: 1px solid #d0d0d0;
+    padding: 10px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #111;
+  }
+
+  .flow-arrow {
+    font-size: 14px;
+    color: #aaa;
+    padding: 0 8px;
+  }
+
+  /* Layers */
+  .layers {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    margin: 28px 0;
+  }
+
+  .layer {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 14px 16px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+  }
+
+  .layer-name {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #111;
+    min-width: 100px;
+    flex-shrink: 0;
+  }
+
+  .layer-desc {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+  }
+
+  /* Scenarios */
+  .scenarios {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    margin: 28px 0;
+  }
+
+  .scenario {
+    padding: 18px 20px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+  }
+
+  .scenario-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #111;
+    margin-bottom: 6px;
+  }
+
+  .scenario-desc {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.55;
+  }
+
+  /* Decisions table */
+  .decisions {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 28px 0;
+    font-size: 14px;
+  }
+
+  .decisions th {
+    text-align: left;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #999;
+    padding: 10px 16px;
+    border-bottom: 1px solid #d0d0d0;
+    background: #ebebeb;
+  }
+
+  .decisions td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #e8e8e8;
+    color: #222;
+    line-height: 1.55;
+    background: #fff;
+    vertical-align: top;
+  }
+
+  .decisions td:first-child {
+    font-weight: 600;
+    color: #111;
+    width: 40%;
+  }
+
+  /* Contributions */
+  .contrib-list {
+    list-style: none;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .contrib-list li {
+    font-size: 14px;
+    color: #222;
+    line-height: 1.55;
+    padding: 12px 16px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .contrib-list li::before {
+    content: '—';
+    color: #aaa;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+
+  /* Tags */
+  .tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+  }
+
+  .tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #555;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    background: #fff;
+  }
+
+  /* Closing */
+  .closing {
+    padding: 48px 0 0;
+    border-top: 1px solid #d0d0d0;
+    margin-top: 72px;
+  }
+
+  .closing p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #333;
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 48px 20px 80px; }
+    .hero { padding: 56px 0 48px; }
+    .flow-node { font-size: 11px; padding: 8px 12px; }
+    .meta { gap: 20px; }
+
+    .decisions,
+    .decisions thead,
+    .decisions tbody,
+    .decisions tr,
+    .decisions th,
+    .decisions td { display: block; width: 100%; }
+    .decisions thead { display: none; }
+    .decisions tr {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      margin-bottom: 1px;
+      padding: 14px 16px;
+    }
+    .decisions td {
+      padding: 0;
+      border-bottom: none;
+      background: transparent;
+      width: 100%;
+    }
+    .decisions td:first-child {
+      margin-bottom: 6px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <span class="label">UX Design &nbsp;·&nbsp; 3D Game Development &nbsp;·&nbsp; AI-Assisted Development &nbsp;·&nbsp; Online Multiplayer</span>
+  <h1>CACTUS<br>Digital Strategy Game</h1>
+  <p class="hero-desc">
+    A board game designed for physical production in 2014, reaching players digitally in 2026.
+    A decade-long production constraint solved by moving to the browser —
+    with AI-assisted development, real-time multiplayer, and a full analytics pipeline.
+  </p>
+  <div class="meta">
+    <div class="meta-item">
+      <span class="meta-key">Role</span>
+      <span class="meta-val">UX / Development Lead</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-key">Team</span>
+      <span class="meta-val">3 — Design × 2, UX/Dev × 1</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-key">Stack</span>
+      <span class="meta-val">Three.js · Firebase · Mixpanel</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-key">Type</span>
+      <span class="meta-val">Live Product</span>
+    </div>
+  </div>
+</div>
+
+<section>
+  <h2>Origin</h2>
+  <p>
+    CACTUS started as a wooden board game — a 3D spatial strategy game for two players.
+    In 2014 it reached the finals of the IMMIB national design competition and was exhibited
+    in the official catalogue. In 2018 it was shown in the main hall of the 87th İzmir International Fair.
+    Not a design fair — an international trade exhibition.
+  </p>
+  <p>
+    Then it stalled. Tooling cost for wooden board game production at commercial scale was prohibitive.
+    3D printing was tested; small batches were produced, the game was playable, but unit economics
+    never cleared. The design sat for over a decade with no viable path to reach players.
+  </p>
+  <div class="statement">
+    The constraint wasn't the game. It was the medium.
+  </div>
+  <p>
+    In 2026, a browser-based implementation removed every friction point that blocked the physical version.
+    No manufacturing, no inventory, no retail. A game that couldn't ship for ten years ships as a link.
+  </p>
+</section>
+
+<section>
+  <h2>Development Model</h2>
+  <p>
+    This project was built with AI as the primary implementation tool. Claude generated all production code —
+    Three.js rendering, game logic, Firebase integration, mobile gesture handling, cross-browser fixes.
+    No line of code was written by hand.
+  </p>
+  <p>
+    That shifts the entire weight of the work to decisions. What should the gesture model be?
+    What is the correct definition of an unbroken sequence in 3D space? When does a continuity bonus trigger,
+    and when should it not? Which analytics events carry signal? The AI cannot answer those questions.
+    They require product judgment, design experience, and domain knowledge.
+  </p>
+
+  <div class="flow">
+    <div class="flow-node">Product Scope</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node">UX Decisions</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node">AI Implementation</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node">Cross-Device QA</div>
+  </div>
+
+  <div class="layers">
+    <div class="layer">
+      <span class="layer-name">Human</span>
+      <span class="layer-desc">Scope, backlog, Definition of Done, sprint structure, all UX decisions</span>
+    </div>
+    <div class="layer">
+      <span class="layer-name">Human</span>
+      <span class="layer-desc">Cross-device testing — iOS, Android, desktop — edge case identification, QA</span>
+    </div>
+    <div class="layer">
+      <span class="layer-name">AI</span>
+      <span class="layer-desc">All implementation: Three.js, Firebase, Mixpanel, gesture handling, CI/CD configuration</span>
+    </div>
+  </div>
+
+  <p>Three days to first playable build. The correct context: three days of execution backed by
+  years of accumulated UX and product experience, plus a game design that was already sound.
+  Speed came from not having to figure out the game — only how to implement it correctly.</p>
+</section>
+
+<section>
+  <h2>Design Decisions</h2>
+
+  <div class="scenarios">
+    <div class="scenario">
+      <div class="scenario-title">Mobile gesture model — separating exploration from commitment</div>
+      <div class="scenario-desc">
+        On desktop, mouse hover lets users explore positions before placing. On mobile, every touch is
+        simultaneously a hover and a tap — the initial implementation treated any tap as a placement trigger,
+        which broke exploratory flow entirely. The fix: one-finger drag updates a ghost preview in real time,
+        placement only fires on explicit confirmation, and only when the position is valid.
+        Mobile experience became equivalent to desktop, not a degraded version of it.
+      </div>
+    </div>
+    <div class="scenario">
+      <div class="scenario-title">Accessibility — WCAG AA/AAA as Definition of Done</div>
+      <div class="scenario-desc">
+        A color-heavy 3D game risks failing basic readability under color vision deficiencies.
+        Rather than retrofitting, WCAG AA/AAA contrast ratios were set as non-negotiable DoD criteria from the start.
+        A separate Material Lab was built to simulate five color vision conditions across 24 material combinations,
+        enabling testable, defensible color decisions before applying them to the main build.
+      </div>
+    </div>
+    <div class="scenario">
+      <div class="scenario-title">Analytics — events, not page views</div>
+      <div class="scenario-desc">
+        Standard page-view analytics are meaningless for a single-page game.
+        A session that starts and ends on the same URL could be a 30-second bounce or a 25-minute match.
+        The instrumentation treats the game as a stateful session: every meaningful state transition —
+        piece placed, game abandoned, board inspected, replay started — is captured with full context.
+        The full game is stored as a structured move notation, enabling analysis at the move level.
+      </div>
+    </div>
+  </div>
+
+  <table class="decisions">
+    <thead>
+      <tr>
+        <th>Decision</th>
+        <th>Rationale</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Single HTML file, no bundler</td>
+        <td>Zero deployment friction. Shareable via URL, playable within seconds of receiving a link. Eliminates onboarding as a conversion risk.</td>
+      </tr>
+      <tr>
+        <td>AI for implementation, human for all decisions</td>
+        <td>Preserves product and UX judgment where it matters. Speed of execution without delegating the decisions that determine quality.</td>
+      </tr>
+      <tr>
+        <td>Online multiplayer via Firebase</td>
+        <td>Removes the physical colocation constraint that blocked the game for a decade. Two players anywhere can complete a match. This is the primary product unlock.</td>
+      </tr>
+      <tr>
+        <td>Penalty scoring for unused pieces</td>
+        <td>Closes a game theory gap — without it, conservative piece hoarding is a dominant strategy. Deducting unused piece units forces a real trade-off.</td>
+      </tr>
+      <tr>
+        <td>Minimum viable UI system</td>
+        <td>CSS custom properties and spacing rhythm only — no component library. UI debt was explicitly accepted and documented so it wouldn't block core gameplay progress.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>Contribution</h2>
+  <ul class="contrib-list">
+    <li>Defined product scope, sprint structure, and Definition of Done across all increments</li>
+    <li>Designed the full interaction model: gesture system, 3D navigation, placement feedback, mobile parity</li>
+    <li>Directed all AI-generated implementation — Three.js rendering, Firebase integration, Mixpanel instrumentation, CI/CD pipeline</li>
+    <li>Set WCAG AA/AAA as non-negotiable criteria; built a separate color lab to validate decisions before applying them</li>
+    <li>Led cross-device QA on iOS, Android, and desktop browsers — edge case identification and reproduction</li>
+    <li>Designed the analytics event schema to measure meaningful engagement, not session counts</li>
+    <li>Built the working live product, currently in closed playtest</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Positioning</h2>
+  <p>
+    CACTUS sits between Checkers and Chess in game tree complexity — approximately 10³⁸ possible game states.
+    This is a consequence of three-dimensional placement, 24 rotation states per piece, and the absence
+    of piece repetition. The game's depth was not incidental; it was designed in 2014 and proven by analysis in 2026.
+  </p>
+  <p>
+    This project demonstrates what happens when a design that has already proven its quality
+    is freed from the medium that was limiting it. The work was not inventing the game —
+    it was removing every obstacle between the game and the people who should be playing it.
+  </p>
+  <div class="tags">
+    <span class="tag">UX Design</span>
+    <span class="tag">3D Interaction</span>
+    <span class="tag">AI-Assisted Development</span>
+    <span class="tag">Game Design</span>
+    <span class="tag">Online Multiplayer</span>
+    <span class="tag">Product Analytics</span>
+    <span class="tag">Accessibility</span>
+  </div>
+</section>
+
+<div class="closing">
+  <p>
+    The game is live and in a closed playtest phase. Analytics are running across offline same-screen play,
+    online multiplayer, and cross-platform gesture handling. Next milestone: a move replay system
+    that turns every completed match into a reviewable learning artifact.
+  </p>
+</div>
+
+</body>
+</html>
